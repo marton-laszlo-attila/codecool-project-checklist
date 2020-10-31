@@ -13,6 +13,7 @@ $(document).ready(function() {
     };    
  });
 
+
 function changeList() {
     var list = document.getElementsByClassName('task-criteria');
     for (i = 0; i < list.length; i++) {                
