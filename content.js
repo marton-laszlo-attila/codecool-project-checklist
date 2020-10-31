@@ -1,7 +1,4 @@
 $(document).ready(function() {
-    window.onpopstate = function(event) {
-        alert("location: " + document.location + ", state: " + JSON.stringify(event.state));
-      };
     if (checkUrl('journey.code.cool') === 2 && checkUrl('project') === 6) {
         var checkExist = setInterval(function() {
             if ($('.curriculum-project-content h1').ready) {
