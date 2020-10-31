@@ -75,4 +75,3 @@ function checkUrlSplit () {
     //onsole.log (url.split("/"));
     return url.split("/");
 }
-
