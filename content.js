@@ -1,20 +1,47 @@
+chrome.storage.local.set({'proba': 'xxxxxxxxxxxxxxxxxx'}, function() {
+    console.log("storage");
+  });
+
+console.log("start1");
+
 $(document).ready(function() {
-    if (checkUrl('journey.code.cool') === 2 && checkUrl('project') === 6) {
+    console.log("start");
+    //if (checkUrl('journey.code.cool') === 2 && checkUrl('project') === 6) {
+        console.log("project");
         var checkExist = setInterval(function() {
-            if ($('.curriculum-project-content h1').ready) {
+            // if ($('.curriculum-project-content h1').ready) {
+            if ($('.curriculum-project-content h1').length) {
                 clearInterval(checkExist);
-                console.log("Running Codecool checklist process");
+                console.log("Running Codecool checklist...");
                 changeList();      
             }
         }, 2000); // ha itt kissebb érték van, akkor a "[Violation] 'load' handler took" később fut le, akkor hibaüzenet jön
-    };    
+    //};    
  });
 
 
+// chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+//     if (request.message === 'TabUpdated') {
+//         console.log("---->"+document.location.href);
+//         if (checkUrl('journey.code.cool') === 2 && checkUrl('project') === 6) {
+//             console.log("project");
+//             var checkExist = setInterval(function() {
+//                 // if ($('.curriculum-project-content h1').ready) {
+//                 if ($('.curriculum-project-content h1').length) {
+//                     clearInterval(checkExist);
+//                     console.log("Running Codecool checklist...");
+//                     changeList();      
+//                 }
+//             }, 2000); // ha itt kissebb érték van, akkor a "[Violation] 'load' handler took" később fut le, akkor hibaüzenet jön
+//         };    
+//     }
+//   })
+
 function changeList() {
-    var list = document.getElementsByClassName('task-criteria');
-    for (i = 0; i < list.length; i++) {                
-        elementLi = list[i].getElementsByTagName("LI");            
+    console.log("change");
+    var list = $('.task-criteria');
+    for (i = 0; i < list.length; i++) {                       
+        elementLi = $(list[i]).find("li");            
         for (e = 0; e < elementLi.length; e++) {
             inputElement = $("<input>").attr({
                 id:    'checkbox-' + i + '-' + e,
@@ -27,7 +54,7 @@ function changeList() {
                     var urlList = checkUrlSplit();                        
                     var cookieNameElements = ["CC-check", urlList[checkUrl('project')+1], event.target.id];
                     var cookieName = cookieNameElements.join('|'); 
-                    if (event.target.checked === true) $.cookie(cookieName, event.target.checked, { path: '/', domain: 'journey.code.cool' });
+                    if (event.target.checked === true) $.cookie(cookieName, event.target.checked, { expires: 1000, path: '/', domain: 'journey.code.cool' });
                     else $.removeCookie(cookieName);
                 }    
             );
@@ -68,8 +95,6 @@ function checkUrl(name) {
 }
 
 function checkUrlSplit () {
-    //return $(location).attr('href').split("/");
     var url = document.location.href;
-    //onsole.log (url.split("/"));
     return url.split("/");
 }
