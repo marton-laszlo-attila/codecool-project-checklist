@@ -1,11 +1,11 @@
-chrome.storage.local.set({'proba': 'xxxxxxxxxxxxxxxxxx'}, function() {
-    console.log("storage");
-  });
 
 console.log("start1");
 
 $(document).ready(function() {
+
     console.log("start");
+
+
     //if (checkUrl('journey.code.cool') === 2 && checkUrl('project') === 6) {
         console.log("project");
         var checkExist = setInterval(function() {
