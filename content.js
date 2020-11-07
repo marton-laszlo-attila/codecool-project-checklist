@@ -3,11 +3,21 @@ console.log("Start Codecool checklist...");
 
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
-      if (request.greeting == "CodeCool check") {
-        sendResponse({farewell: "goodbye"});
-            checkCurriculum();
-        }
+      if (request.greeting == "CodeCool check") checkCurriculum();
+      if (request.greeting == "yesAll") {
+            window.localStorage.setItem('CodeCool-checklist', '');
+          clearCheklist();
       }
+      if (request.greeting == "yesCurrent") {
+        storageList = loadStorage();
+        urlList = checkUrlSplit();  
+        storageListIndex = urlList[checkUrl('project')+1]; 
+        delete storageList[storageListIndex];
+        saveStorage(storageList); 
+        clearCheklist();
+        //changeList();       
+      }
+      sendResponse({farewell: "goodbye"});
     });
 
 function checkCurriculum() {
@@ -56,14 +66,17 @@ function changeList() {
             elementLi[e].prepend(inputElement);
         }
     }
-    for (const [storageListIndex, storageListIds] of Object.entries(storageList)) {
-        var urlList = checkUrlSplit(); 
-        if (storageListIndex === urlList[checkUrl('project')+1]) {
-            for (const [key, value] of Object.entries(storageListIds)) {
-                document.getElementById(key).setAttribute("checked", "checked");
+    if (storageList !== null) {
+        for (const [storageListIndex, storageListIds] of Object.entries(storageList)) {
+            var urlList = checkUrlSplit(); 
+            if (storageListIndex === urlList[checkUrl('project')+1]) {
+                for (const [key, value] of Object.entries(storageListIds)) {
+                    document.getElementById(key).checked = true;
+                }
             }
         }
     }
+    else storageList = loadStorage();
 }
 
  function checkUrl(name) {
@@ -79,7 +92,7 @@ function checkUrlSplit () {
 function loadStorage() {
     var text = window.localStorage.getItem('CodeCool-checklist');
     var list = null;
-    if (text !== "") {
+    if (text !== '') {
         list = JSON.parse(text);
     }
     else {
@@ -92,4 +105,12 @@ function loadStorage() {
 function  saveStorage(storageList) {
     var list = JSON.stringify(storageList);
     window.localStorage.setItem('CodeCool-checklist', list);
+}
+
+function clearCheklist() {
+    chechboxAll = document.getElementsByClassName('chechbox-check');
+    for (i = 0; i < chechboxAll.length; i++) {        
+        chechboxId = chechboxAll[i].getAttribute("id");
+        document.getElementById(chechboxId).checked = false;
+    }
 }
