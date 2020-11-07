@@ -1,43 +1,24 @@
-chrome.runtime.onMessage.addListener(
-    function(request, sender, sendResponse) {
-      console.log(request);
-      console.log(sender.tab ?
-                  "from a content script:" + sender.tab.url :
-                  "from the extension");
-      if (request.greeting == "hello")
-        sendResponse({farewell: "goodbye"});
-    });
-
-chrome.runtime.onMessage.addListener(
-    function(request, sender, sendResponse) {
-        console.log(request);
-    });
-
-
 var storageList = loadStorage();
 console.log("Start Codecool checklist...");
-console.log(checkUrl('curriculum'));
-checkCurriculum ();
+
+chrome.runtime.onMessage.addListener(
+    function(request, sender, sendResponse) {
+      if (request.greeting == "CodeCool check") {
+        sendResponse({farewell: "goodbye"});
+            checkCurriculum();
+        }
+      }
+    });
 
 function checkCurriculum() {
     var checkExist = setInterval(function() {
         var content = document.getElementsByClassName("curriculum-project-content");
-        console.log("Check curriculum...");
         if (content.length) {
             clearInterval(checkExist);
-            console.log("Running Codecool checklist...");
             changeList();      
         }
-    }, 2000); // ha itt kissebb érték van, akkor a "[Violation] 'load' handler took" később fut le, akkor hibaüzenet jön
+    }, 500); // ha itt kissebb érték van, akkor a "[Violation] 'load' handler took" később fut le, akkor hibaüzenet jön
 }
-
-window.addEventListener("unload", function (params) {
-    console.log("------------------------------");
-});
-
-window.addEventListener('popstate', function(){
-    console.log('location changed!');
-})
 
 function changeList() {
     var list = document.getElementsByClassName('task-criteria');
@@ -83,30 +64,7 @@ function changeList() {
             }
         }
     }
-    // ezt a kódrészt át kell alakítani
-    $('.curriculum-project-content').on('DOMSubtreeModified', function() {
-        changeEvent();    
-    });   
-    $('body').on('unload', function(e){
-        console.log('>>>>>>>>>>>>>>>>>>');
-    });
-    // vége
 }
-
-function changeEvent() {
-    console.log("+++++++++++++++++++++");
-    var contentContener = document.querySelector('.curriculum-project-content');
-    var contentLength =  contentContener.innerHTML.length;
-
-    if (contentLength > 0) {
-        // ezt a kódrészt át kell alakítani
-        $('.curriculum-project-content').off("DOMSubtreeModified");
-
-        // vége
-        storageList = loadStorage();
-        changeList();
-    }
- }
 
  function checkUrl(name) {
     var urlSplit = checkUrlSplit();
