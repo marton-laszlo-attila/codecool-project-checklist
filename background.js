@@ -19,12 +19,4 @@ function callMessage(url) {
       console.log(response.farewell);
     });
   });
-}
-
-chrome.webRequest.onCompleted.addListener(
-  function(details) {
-    console.log("URL :" + details.url);  },
-  {
-    urls: ['*://in.hotjar.com/*']
-  }
-);
+} 
