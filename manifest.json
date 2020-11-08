@@ -1,7 +1,7 @@
 {
-  "name": "Codecool project checklist",
+  "name": "Codecool curriculum project checklist",
   "version": "1.1",
-  "description": "A Codecool projekt oldalakon checkboxok elhelyezése a feladat kritérium felsorolásoknál.",
+  "description": "Placing checkboxes on the Codecool curriculum project pages.",
   "permissions": [
     "activeTab", 
     "declarativeContent", 
