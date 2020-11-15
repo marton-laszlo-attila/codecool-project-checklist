@@ -1,9 +1,27 @@
+.task-criteria {
+    position: relative; 
+    margin-left: 15px;
+}
 .task-criteria li {
-    list-style-type: none;
-}
-
+    padding-left: 20px;
+    margin-left: 3px;
+ }
+ .task-criteria li::marker {
+    font-size: 0.8em;
+ }
 .chechbox-check {
-    margin: 0 7px 0 -20px;
-   /*  background-color: #a77e2d !important;
-    color: #ffffff !important; */
+    position: absolute;
+    margin: 3px 0 0 -20px;
 }
+/* .task-criteria {
+    position: relative; 
+    margin-left: 15px;
+}
+.task-criteria li {
+    padding-left: 3px;
+    margin-left: 3px;
+ }
+.chechbox-check {
+    position: absolute;
+    margin: 3px 0 0 -46px;
+} */

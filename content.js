@@ -32,7 +32,13 @@ function checkCurriculum() {
 
 function changeList() {
     var list = document.getElementsByClassName('task-criteria');
-    for (i = 0; i < list.length; i++) {                       
+    for (i = 0; i < list.length; i++) {       
+        
+        var original_html = list[i].outerHTML;
+        original_html = original_html.replace("<ul ", "<ol ");
+        original_html = original_html.replace("</ul>", "</ol>");
+        list[i].outerHTML = original_html;
+        
         elementLi = list[i].querySelectorAll("li");            
         for (e = 0; e < elementLi.length; e++) {
             inputElement = document.createElement("input");
