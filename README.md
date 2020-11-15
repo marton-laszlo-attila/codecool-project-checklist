@@ -1,5 +1,5 @@
 # Codecool curriculum project checklist
-<img src="images/screenshot.jpg" width="50%" align="right">Chrome browser extension, that cooperate with the Codecool Journey curriculum projects page. Adds a checkbox to the checklist of parts of the project task. Here you can mark that you have completed the task.
+<img src="images/screenshot.jpg" width="33%" align="right">Chrome browser extension, that cooperate with the Codecool Journey curriculum projects page. Adds a checkbox to the checklist of parts of the project task. Here you can mark that you have completed the task.
 The extension works completely independently of the Codecool Journey system.
 
 ## Prerequisites
