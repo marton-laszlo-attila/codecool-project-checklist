@@ -10,7 +10,7 @@ Chrome browser
 ## Installing
 
 1. Download the latest release from
-   <https://github.com/marton-laszlo-attila/codecool-project-checklist>
+   <https://github.com/marton-laszlo-attila/codecool-project-checklist/archive/main.zip>
 1. Extract the zip file to any directory you'd like, though you need to make
    sure the directory is not deleted while you want to use the extension
 1. Go to extensions page in Chrome (URL: `chrome://extensions`)
