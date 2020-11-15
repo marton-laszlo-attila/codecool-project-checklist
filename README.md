@@ -22,22 +22,21 @@ Chrome browser
    from loading another unpacked version)
 1. Click "Load Unpacked" and select the directory you extracted the release zip
    into
-1. Check the list of extensions, to display the extensions icon in the menu
+1. Check the list of extensions, to display the extensions icon in the icon list
 
 ## Using
 
-A kiterjesztés installálása után, a curriculum projekt oldalakon megjelennek a checkbox-ok. Ezek bejelölését a kiterjesztés eltárolja.
+A kiterjesztés installálása után, a curriculum projekt oldalakon megjelennek a checkbox-ok. Ezeket be lehet jelölni, amit a kiterjesztés eltárol.
 
 Két kiegészető funkció érhető még el, melyek a kiegészítő ikonjára kattintva jelennek meg. Ott lehet törölni az épp aktuális lap, vagy az összes oldal jelölőit. A törléskor az adatbázisból is törlődnek a jelölések.
 
-After installing the extension, checkboxes will appear on the curriculum project pages. Checking these is stored in the extension.
+After installing the extension, checkboxes will appear on the curriculum project pages. These can be checked, which is save by the extension.
 
 There are two additional features available, which are displayed by clicking on the extension icon. There you can delete the markers of the current page or all pages. When you delete, the markings are also deleted from the database.
 
-
 ## Authors
 
-* **Márton László Attila** - *Initial work* - [PurpleBooth](https://github.com/marton-laszlo-attila)
+* **Márton László Attila** - *Initial work* - [marton-laszlo-attila](https://github.com/marton-laszlo-attila)
 
 ## License
 
