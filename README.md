@@ -1,5 +1,5 @@
 # Codecool curriculum project checklist
-Chrome böngésző kiterjesztés, amely a Codecool Journey curriculum projekt lapjaival működik együtt. A projekt feladat részeinek ellenörző listájához ad hozzá egy-egy checkbox-ot. Itt tudod jelölni, hogy elvégezted az adott feladat részt.
+<img src="images/screenshot.jpg" width="50%" align="right">Chrome böngésző kiterjesztés, amely a Codecool Journey curriculum projekt lapjaival működik együtt. A projekt feladat részeinek ellenörző listájához ad hozzá egy-egy checkbox-ot. Itt tudod jelölni, hogy elvégezted az adott feladat részt.
 A kiegészítő teljesen függetlenül működik a Codecool Journey rendszertől.
 
 Chrome browser extension, that cooperate with the Codecool Journey curriculum projects page. Adds a checkbox to the checklist of parts of the project task. Here you can mark that you have completed the task.
